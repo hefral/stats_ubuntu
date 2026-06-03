@@ -24,9 +24,16 @@ For NVIDIA metrics, install the NVIDIA driver package that provides `nvidia-smi`
 
 ## Run With uv
 
+On Ubuntu, use the setup script so the uv environment can see GTK/AppIndicator
+packages installed by `apt`:
+
 ```bash
-cd stats_ubuntu
-uv sync
+./scripts/setup-ubuntu.sh
+```
+
+Then run:
+
+```bash
 uv run stats-ubuntu
 ```
 
@@ -34,6 +41,12 @@ For a terminal-only debug loop:
 
 ```bash
 uv run stats-ubuntu --debug
+```
+
+To inspect CPU temperature sensor detection:
+
+```bash
+uv run stats-ubuntu --probe-sensors
 ```
 
 ## Notes
